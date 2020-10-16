@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gpu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" offset-sm="4">
+        <ion-row>
+          <ion-col>
+            <ion-img [src]="loadedGpu.imgGPU"  ></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col >
+            <h3>{{loadedGpu.merkGpu + ' ' + loadedGpu.modelGPU}}</h3>
+            <h5>{{loadedGpu.harga | currency : "Rp." }}</h5>
+            <h6>Tersedia : {{loadedGpu.stock}}</h6>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <h6 style="margin-left: 10px">Tentang Produk</h6>
+              <ion-item>
+                <h6>Merk: {{ loadedGpu.merkGpu }} GHz</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Model: {{ loadedGpu.modelGPU }} GHz</h6>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

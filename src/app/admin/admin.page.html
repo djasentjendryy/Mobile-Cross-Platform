@@ -1,0 +1,146 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Admin
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="Barang"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['add-item']">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-list>
+<!--    CPU-->
+    <ion-item-sliding style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let cpu of cpus" #slidingItem >
+      <ion-item-options side="start">
+        <ion-item-option [routerLink]="['cpu-edit/', cpu.idCPU]" >
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-row >
+          <ion-img style="width: 80px; height: 80px;" [src]="cpu.imgCPU" ></ion-img>
+          <ion-col>
+            <ion-row>
+              Nama  : {{cpu.merCPU}}
+            </ion-row>
+            <ion-row>
+              Harga : {{cpu.harga | currency: "Rp."}}
+            </ion-row>
+            <ion-row>
+              Stock : {{cpu.stock}}
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteCPU(cpu, slidingItem)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+<!--    GPU-->
+    <ion-item-sliding style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let gpu of gpus" #slidingItem >
+      <ion-item-options side="start">
+<!--        <ion-item-option (click)="editGPU(gpu, slidingItem)" [routerLink]="['cpu-edit/', gpu.idGPU]" ]>-->
+        <ion-item-option [routerLink]="['gpu-edit/', gpu.idGPU]" >
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-row >
+          <ion-img style="width: 80px; height: 80px;" [src]="gpu.imgGPU" ></ion-img>
+          <ion-col>
+            <ion-row>
+              Nama  : {{gpu.merkGpu}}
+            </ion-row>
+            <ion-row>
+              Harga : {{gpu.harga | currency: "Rp."}}
+            </ion-row>
+            <ion-row>
+              Stock : {{gpu.stock}}
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteGPU(gpu, slidingItem)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+<!--    MotherBoard-->
+    <ion-item-sliding style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let mb of mobo" #slidingItem >
+      <ion-item-options side="start">
+        <ion-item-option [routerLink]="['mobo-edit/', mb.idMOBO]" >
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-row >
+          <ion-img style="width: 80px; height: 80px;" [src]="mb.img" ></ion-img>
+          <ion-col>
+            <ion-row>
+              Nama  : {{mb.merkMOBO}}
+            </ion-row>
+            <ion-row>
+              Harga : {{mb.harga | currency: "Rp."}}
+            </ion-row>
+            <ion-row>
+              Stock : {{mb.stock}}
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteMOBO(mb, slidingItem)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+<!--    RAM-->
+    <ion-item-sliding style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let rm of ram" #slidingItem >
+      <ion-item-options side="start">
+        <ion-item-option [routerLink]="['ram-edit/', rm.idRAM]" >
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-row >
+          <ion-img style="width: 80px; height: 80px;" [src]="rm.img" ></ion-img>
+          <ion-col>
+            <ion-row>
+              Nama  : {{rm.merkRAM}}
+            </ion-row>
+            <ion-row>
+              Harga : {{rm.harga | currency: "Rp."}}
+            </ion-row>
+            <ion-row>
+              Stock : {{rm.stock}}
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteRAM(rm, slidingItem)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

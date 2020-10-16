@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Product</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="AlertEdit()"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Url Foto</ion-label>
+        <ion-textarea formControlName="url" rows="3"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Merek</ion-label>
+        <ion-input formControlName="merk" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input formControlName="model" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Harga</ion-label>
+        <ion-input formControlName="harga" type="number" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Stok</ion-label>
+        <ion-input formControlName="stok" type="number" min="0" max="999" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Detail Produk</ion-label>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Size</ion-label>
+              <ion-input formControlName="size" type="number" min="0" max="999" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="stacked">Speed</ion-label>
+              <ion-input formControlName="speed" type="number" min="0" max="999" ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </form>
+</ion-content>

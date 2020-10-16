@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>cpu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" offset-sm="4">
+        <ion-row>
+          <ion-col>
+            <ion-img [src]="loadedCPU.imgCPU"  ></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col >
+            <h3>{{loadedCPU.merCPU + ' ' + loadedCPU.modelCPU}}</h3>
+            <h5>{{loadedCPU.harga | currency : "Rp." }}</h5>
+            <h6>Tersedia : {{loadedCPU.stock}}</h6>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                <h6>Base Clock: {{ loadedCPU.baseclockCPU }} GHz</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Boost Clock: {{ loadedCPU.boostclockCPU }} GHz</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Core: {{ loadedCPU.coreCPU }}</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Thread: {{ loadedCPU.threadCPU }}</h6>
+              </ion-item>
+            </ion-list>
+
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

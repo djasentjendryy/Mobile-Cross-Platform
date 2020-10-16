@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>RAM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" offset-sm="4">
+        <ion-row>
+          <ion-col>
+            <ion-img [src]="loadedRam.img"  ></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col >
+            <h3>{{loadedRam.merkRAM + ' ' + loadedRam.modelRAM}}</h3>
+            <h5>{{loadedRam.hargaRAM | currency : "Rp." }}</h5>
+            <h6>Tersedia : {{loadedRam.stock}}</h6>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <h6 style="margin-left: 10px">Tentang Produk</h6>
+              <ion-item>
+                <h6>Merk: {{ loadedRam.merkRAM }}</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Model: {{ loadedRam.modelRAM }}</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Speed: {{ loadedRam.speedRAM }} Mhz</h6>
+              </ion-item>
+              <ion-item>
+                <h6>Size: {{ loadedRam.size }} Gb</h6>
+              </ion-item>
+            </ion-list>
+
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

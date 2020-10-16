@@ -1,0 +1,171 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="Barang"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="mode === 'list'" (click)="switch()">
+        <ion-icon name="grid"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="mode === 'grid'" (click)="switch()">
+        <ion-icon name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid *ngIf="mode === 'list'">
+    <!--  CPU-->
+    <ion-item style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let cpu of cpus" [routerLink]="['cpu/', cpu.idCPU]" >
+      <ion-row>
+        <ion-img style="width: 80px; height: 80px;" [src]="cpu.imgCPU" ></ion-img>
+        <ion-col>
+          <ion-row>
+            Nama  : {{cpu.merCPU}}
+          </ion-row>
+          <ion-row>
+            Harga : {{cpu.harga | currency: "Rp."}}
+          </ion-row>
+          <ion-row>
+            Stock : {{cpu.stock}}
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <!--    GPU-->
+    <ion-item style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let gpu of gpus" [routerLink]="['gpu/',gpu.idGPU]">
+      <ion-row >
+        <ion-img style="width: 80px; height: 80px;" [src]="gpu.imgGPU" ></ion-img>
+        <ion-col>
+          <ion-row>
+            Nama  : {{gpu.merkGpu}}
+          </ion-row>
+          <ion-row>
+            Harga : {{gpu.harga | currency: "Rp."}}
+          </ion-row>
+          <ion-row>
+            Stock : {{gpu.stock}}
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <!--    MotherBoard-->
+    <ion-item style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let mb of mobo" [routerLink]="['motherboard/',mb.idMOBO]">
+      <ion-row >
+        <ion-img style="width: 80px; height: 80px;" [src]="mb.img" ></ion-img>
+        <ion-col>
+          <ion-row>
+            Nama  : {{mb.merkMOBO}}
+          </ion-row>
+          <ion-row>
+            Harga : {{mb.harga | currency: "Rp."}}
+          </ion-row>
+          <ion-row>
+            Stock : {{mb.stock}}
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+<!--    RAM-->
+    <ion-item style="margin-top: 12px;margin-left: 12px;margin-right: 12px;" *ngFor="let rm of ram" [routerLink]="['ram/',rm.idRAM]">
+      <ion-row >
+        <ion-img style="width: 80px; height: 80px;" [src]="rm.img" ></ion-img>
+        <ion-col>
+          <ion-row>
+            Nama  : {{rm.merkRAM}}
+          </ion-row>
+          <ion-row>
+            Harga : {{rm.hargaRAM | currency: "Rp."}}
+          </ion-row>
+          <ion-row>
+            Stock : {{rm.stock}}
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-grid>
+
+  <ion-grid *ngIf="mode === 'grid'">
+<!--    CPU-->
+    <ion-row>
+      <ion-col *ngFor="let cp of cpus" size="6" [routerLink]="['cpu/',cp.idCPU]">
+        <ion-card>
+          <ion-row>
+            <img src="{{cp.imgCPU}}">
+          </ion-row>
+            <ion-card-header>
+            </ion-card-header>
+            <ion-card-content>
+                <br>
+              <ion-text>{{ cp.merCPU + ' ' + cp.modelCPU}}</ion-text>
+                <br>
+              <ion-text>{{ cp.harga | currency : "Rp." }}</ion-text>
+
+              <br>
+              <ion-text> Tersedia: {{ cp.stock}}</ion-text>
+            </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+<!--    GPU-->
+    <ion-row>
+      <ion-col *ngFor="let gpu of gpus" size="6" [routerLink]="['gpu/',gpu.idGPU]">
+        <ion-card>
+            <ion-card-header>
+              <ion-img  [src]="gpu.imgGPU"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+              <br>
+              <ion-text>{{ gpu.merkGpu + ' ' + gpu.modelGPU}}</ion-text>
+              <br>
+              <ion-text>{{ gpu.harga | currency : "Rp." }}</ion-text>
+              <br>
+              <ion-text>Tersedia: {{ gpu.stock}}</ion-text>
+            </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+<!--RAM-->
+    <ion-row>
+      <ion-col *ngFor="let rm of ram" size="6" [routerLink]="['ram/',rm.idRAM]">
+        <ion-card>
+          <ion-card-header>
+            <ion-img  [src]="rm.img"></ion-img>
+          </ion-card-header>
+          <ion-card-content>
+            <br>
+            <ion-text>{{ rm.merkRAM + ' ' + rm.modelRAM}}</ion-text>
+            <br>
+            <ion-text>{{ rm.harga | currency : "Rp." }}</ion-text>
+            <br>
+            <ion-text>Tersedia: {{ rm.stock}}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+<!--    MotherBoard-->
+    <ion-row>
+      <ion-col *ngFor="let mb of mobo" size="6" [routerLink]="['ram/',mb.idMOBO]">
+        <ion-card>
+          <ion-card-header>
+            <ion-img  [src]="mb.img"></ion-img>
+          </ion-card-header>
+          <ion-card-content>
+            <br>
+            <ion-text>{{ mb.merkMOBO + ' ' + mb.modelMOBO}}</ion-text>
+            <br>
+            <ion-text>{{ mb.harga | currency : "Rp." }}</ion-text>
+            <br>
+            <ion-text>Tersedia: {{ mb.stock}}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

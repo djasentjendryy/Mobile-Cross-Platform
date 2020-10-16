@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "DjasenTjendry_00000025138_IF733_CL_UTS",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
