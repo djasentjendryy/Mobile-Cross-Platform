@@ -20,7 +20,7 @@ export class HomePage {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(){
-    this.mode = 'grid';
+    this.mode = 'list';
     this.cpus = this.barangService.getAllCpus().filter(stock => stock.stock !== 0);
     this.gpus = this.barangService.getAllGpus().filter(stock => stock.stock !== 0);
     this.mobo = this.barangService.getAllMOBO().filter(stock => stock.stock !== 0);
